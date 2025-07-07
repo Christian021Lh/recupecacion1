@@ -31,11 +31,15 @@ spring:
           uri: lb://clh-catalogo-service
           predicates:
             - Path=/producto/**
+          filters:
+            - AuthFilter
 
         - id: clh-venta-service
           uri: lb://clh-venta-service
           predicates:
             - Path=/venta/**
+          filters:
+            - AuthFilter
 
         - id: ms-auth-service
           uri: lb://ms-auth-service
