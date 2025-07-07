@@ -4,24 +4,18 @@ server:
 spring:
   application:
     name: clh-venta-service
-<<<<<<< HEAD
+
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
-=======
->>>>>>> 44965c4bffbfb4612f99736e5ec14144aee1da86
+
 
   datasource:
     url: jdbc:mysql://localhost:3306/clh-venta
     username: root
     password: ""
     driver-class-name: com.mysql.cj.jdbc.Driver
-
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
 
 springdoc:
   api-docs:
