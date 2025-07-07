@@ -23,26 +23,22 @@ spring:
               - PUT
               - DELETE
 
-
       discovery:
         locator:
-          enable: true
+          enabled: true
       routes:
         - id: clh-catalogo-service
           uri: lb://ms-catalogo-service
           predicates:
             - Path=/producto/**
-          filters:
-
 
         - id: clh-venta-service
-          url: lb://clh-venta-service
-            - predicates:
-              - Path=/venta/**
-
-
+          uri: lb://clh-venta-service
+          predicates:
+            - Path=/venta/**
 
         - id: ms-auth-service
           uri: lb://ms-auth-service
           predicates:
             - Path=/auth/**
+
