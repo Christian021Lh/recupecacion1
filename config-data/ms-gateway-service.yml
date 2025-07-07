@@ -28,7 +28,7 @@ spring:
           enabled: true
       routes:
         - id: clh-catalogo-service
-          uri: lb://ms-catalogo-service
+          uri: lb://clh-catalogo-service
           predicates:
             - Path=/producto/**
 
