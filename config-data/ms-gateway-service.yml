@@ -31,7 +31,7 @@ spring:
         - id: ms-catalogo-service
           uri: lb://ms-catalogo-service
           predicates:
-            - Path=/category/**
+            - Path=/producto/**
           filters:
 
 
@@ -39,7 +39,7 @@ spring:
           url: lb://clh-venta-service
             - predicates:
               - path=/venta/**
-    
+
 
 
         - id: ms-auth-service

@@ -40,7 +40,7 @@ public class VentaServiceImpl implements VentaService {
         }
 
         // 2. Validar stock disponible
-        if (productoDto.getCantidad() < 1) {
+        if (productoDto.getStock() < 1) {
             throw new RuntimeException("No hay stock disponible del producto con ID: " + productoId);
         }
 
