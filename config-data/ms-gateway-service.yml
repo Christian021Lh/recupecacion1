@@ -34,33 +34,14 @@ spring:
             - Path=/category/**
           filters:
 
-        - id: ms-vehiculo-service
-          uri: lb://ms-vehiculo-service
-          predicates:
-            - Path=/vehiculo/**
 
-        - id: ms-cliente-service
-          uri: lb://ms-cliente-service
-          predicates:
-            - Path=/cliente/**
+        - id: clh-venta-service
+          url: lb://clh-venta-service
+            - predicates:
+              - path=/venta/**
+    
 
-        - id: ms-registroenvio-service
-          uri: lb://ms-registroenvio-service
-          predicates:
-            - Path=/registroenvio/**
 
-        - id: ms-librocarga-service
-          uri: lb://ms-librocarga-service
-          predicates:
-            - Path=/librocarga/**
-          filters:
-            - AuthFilter
-        - id: ms-gestionenvio-service
-          uri: lb://ms-gestionenvio-service
-          predicates:
-            - Path=/gestionenvio/**
-          filters:
-            - AuthFilter
         - id: ms-auth-service
           uri: lb://ms-auth-service
           predicates:

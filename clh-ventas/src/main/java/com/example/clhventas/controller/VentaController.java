@@ -9,23 +9,28 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/ventas")
+@RequestMapping("/venta")
 public class VentaController {
 
     @Autowired
     private VentaService ventaService;
 
     /**
-     * Obtener todas las ventas registradas.
+     * Listar todas las ventas.
+     * GET /venta
      */
     @GetMapping
     public ResponseEntity<List<Venta>> listarVentas() {
         List<Venta> ventas = ventaService.listar();
+        if (ventas.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
         return ResponseEntity.ok(ventas);
     }
 
     /**
      * Obtener una venta por su ID.
+     * GET /venta/{id}
      */
     @GetMapping("/{id}")
     public ResponseEntity<Venta> obtenerVentaPorId(@PathVariable Integer id) {
@@ -34,8 +39,8 @@ public class VentaController {
     }
 
     /**
-     * Registrar una nueva venta para un producto.
-     * Aquí se usa cantidad fija 1. Puedes extenderlo con cantidad personalizada si gustas.
+     * Registrar una nueva venta de un producto.
+     * POST /venta/{productoId}
      */
     @PostMapping("/{productoId}")
     public ResponseEntity<Venta> registrarVenta(@PathVariable Integer productoId) {
@@ -44,7 +49,8 @@ public class VentaController {
     }
 
     /**
-     * Actualizar una venta existente.
+     * Actualizar datos de una venta.
+     * PUT /venta/{id}
      */
     @PutMapping("/{id}")
     public ResponseEntity<Venta> actualizarVenta(@PathVariable Integer id, @RequestBody Venta ventaActualizada) {
@@ -54,6 +60,7 @@ public class VentaController {
 
     /**
      * Eliminar una venta por su ID.
+     * DELETE /venta/{id}
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarVenta(@PathVariable Integer id) {
@@ -61,4 +68,3 @@ public class VentaController {
         return ResponseEntity.noContent().build();
     }
 }
-
